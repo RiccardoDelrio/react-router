@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-
-
 function Posts() {
     const [dataBlogs, SetDataBlogs] = useState([]) //dati ricevuti dalla chiamata fetch
     const apiImg = "http://localhost:3000/imgs/"
@@ -19,41 +17,46 @@ function Posts() {
     }
     useEffect(() => {
         mainCall() //attivo allo start()
-
-
     }, [])
+
     return (
-        <main>
+        <main className="py-5">
             <div className="container">
-                <div className="row flex-column ">
-                    {
-                        dataBlogs.map((element, index) =>
-                            <div className="col p-3 " key={index}>
-                                <div className="card p-2 d-flex flex-row ">
-                                    <div className='img-container d-flex '>
+                <h1 className="text-center mb-5">Le nostre ricette</h1>
+                <div className="row g-4">
+                    {dataBlogs.map((element, index) =>
+                        <div className="col-12" key={index}>
+                            <div className="card p-3">
+                                <div className="row g-0 align-items-center">
+                                    <div className="col-md-4">
                                         <img
                                             src={`${apiImg}/${element.image}`}
                                             className="img_card rounded"
-                                            alt="..."
+                                            alt={element.title}
                                         />
                                     </div>
-                                    <div className="card-body">
-                                        <div className="div d-flex column-gap-3 justify-content-between">
-                                            <h2 className="card-title">{element.title}</h2>
-
-
+                                    <div className="col-md-8">
+                                        <div className="card-body">
+                                            <h3 className="card-title mb-3">{element.title}</h3>
+                                            <div className="mb-3">
+                                                <span className="badge  me-2">
+                                                    {element.tags}
+                                                </span>
+                                            </div>
+                                            <p className="card-text">{element.content}</p>
+                                            <p className="card-text">
+                                                <small className="text-muted">
+                                                    Pubblicato il: {new Date().toLocaleDateString()}
+                                                </small>
+                                            </p>
                                         </div>
-                                        <h6 className="card-subtitle mb-2 text-muted ">Tag associati:{element.tags}</h6>
-                                        <p>{element.content}</p>
                                     </div>
                                 </div>
                             </div>
-
-                        )}
-
+                        </div>
+                    )}
                 </div>
             </div>
-
         </main>
     )
 }

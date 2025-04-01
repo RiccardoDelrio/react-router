@@ -2,6 +2,7 @@
 
 header {
     nav {
+        background: linear-gradient(135deg, #13547a 0%, #80d0c7 100%);
 
 
         a {
@@ -15,14 +16,89 @@ header {
     }
 }
 
+.card {
+    background-color: #f8f9fa;
+    border: none;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #13547a 0%, #80d0c7 100%);
+    color: white;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
 .img_card {
     max-height: 270px;
-    box-shadow: -3px 9px 20px;
+    width: 300px;
+    box-shadow: -3px 9px 20px rgba(0, 0, 0, 0.1);
     margin: auto;
     transition: all ease-in-out 0.2s;
     object-fit: cover;
 
     &:hover {
         transform: scale(1.03);
+    }
+}
+
+.custom-jumbotron {
+    background: linear-gradient(135deg, #13547a 0%, #80d0c7 100%);
+    color: white;
+    border-radius: 20px !important;
+    overflow: hidden;
+    position: relative;
+    min-height: 400px;
+}
+
+.custom-jumbotron::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+.jumbotron-content {
+    position: relative;
+    z-index: 1;
+}
+
+.jumbotron-title {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.5rem;
+}
+
+.jumbotron-text {
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.jumbotron-img {
+    max-height: 250px;
+    max-width: 100%;
+    width: auto;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+    animation: float 6s ease-in-out infinite;
+    object-fit: contain;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
     }
 }

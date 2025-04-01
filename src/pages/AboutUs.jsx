@@ -20,7 +20,7 @@ function AboutUs() {
     ]
     return (
         <main className="container py-5">
-            <section className="about-section mb-5">
+            <section className="about-section mb-5 card p-3">
                 <h1 className="mb-4">Chi Siamo</h1>
                 <div className="row">
                     <div className="col-12">
