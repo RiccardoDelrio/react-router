@@ -16,7 +16,13 @@ header {
 }
 
 .img_card {
-    max-height: 250px;
-
+    max-height: 270px;
+    box-shadow: -3px 9px 20px;
+    margin: auto;
+    transition: all ease-in-out 0.2s;
     object-fit: cover;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 }

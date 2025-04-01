@@ -29,21 +29,22 @@ function Posts() {
                     {
                         dataBlogs.map((element, index) =>
                             <div className="col p-3 " key={index}>
-                                <div className="card d-flex flex-row ">
+                                <div className="card p-2 d-flex flex-row ">
                                     <div className='img-container d-flex '>
                                         <img
                                             src={`${apiImg}/${element.image}`}
-                                            className="img_card"
+                                            className="img_card rounded"
                                             alt="..."
                                         />
                                     </div>
                                     <div className="card-body">
                                         <div className="div d-flex column-gap-3 justify-content-between">
-                                            <h5 className="card-title">{element.title}</h5>
+                                            <h2 className="card-title">{element.title}</h2>
 
 
                                         </div>
                                         <h6 className="card-subtitle mb-2 text-muted ">Tag associati:{element.tags}</h6>
+                                        <p>{element.content}</p>
                                     </div>
                                 </div>
                             </div>
