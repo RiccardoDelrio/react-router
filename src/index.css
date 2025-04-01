@@ -14,3 +14,9 @@ header {
         }
     }
 }
+
+.img_card {
+    max-height: 250px;
+
+    object-fit: cover;
+}

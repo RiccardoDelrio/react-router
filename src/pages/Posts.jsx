@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 
@@ -31,8 +30,12 @@ function Posts() {
                         dataBlogs.map((element, index) =>
                             <div className="col p-3 " key={index}>
                                 <div className="card d-flex flex-row ">
-                                    <div className='img-container d-flex'>
-                                        <img src={`${apiImg}/${element.image}`} className="" alt="..." />
+                                    <div className='img-container d-flex '>
+                                        <img
+                                            src={`${apiImg}/${element.image}`}
+                                            className="img_card"
+                                            alt="..."
+                                        />
                                     </div>
                                     <div className="card-body">
                                         <div className="div d-flex column-gap-3 justify-content-between">
