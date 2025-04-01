@@ -5,7 +5,18 @@ function DefaultLayout() {
     return (
         <>
             <Header />
+
+
+
+
+
             <Outlet />
+
+
+
+
+
+
 
         </>
     )
