@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import DefaultLayout from "./layout/DefoultLayout";
 import Home from "./pages/Home"
 import Posts from "./pages/Posts"
+import AboutUs from "./pages/AboutUs";
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/posts" element={<Posts />} />
-
+          <Route path="/about" element={<AboutUs />} />
 
         </Route>
       </Routes>

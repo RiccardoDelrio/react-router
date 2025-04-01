@@ -19,7 +19,7 @@ export default function Header() {
                             <div className="navbar-nav">
                                 <NavLink className="nav-link  text-white" aria-current="page" to="/">Home</NavLink>
                                 <NavLink className="nav-link text-white" to="/Posts">Post</NavLink>
-                                <NavLink className="nav-link text-white" to="/Who">Chi siamo</NavLink>
+                                <NavLink className="nav-link text-white" to="/About">Chi siamo</NavLink>
 
                             </div>
                         </div>
