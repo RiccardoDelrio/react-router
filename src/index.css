@@ -2,10 +2,12 @@
 
 header {
     nav {
+
+
         a {
 
             img {
-                max-width: 80px;
+                max-width: 50px;
                 border-radius: 10px;
 
             }
