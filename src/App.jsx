@@ -4,7 +4,7 @@ import DefaultLayout from "./layout/DefoultLayout";
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
 import AboutUs from "./pages/AboutUs";
-import Product from "./pages/Product";
+import Product from "./pages/product";
 
 
 function App() {

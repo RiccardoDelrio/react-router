@@ -5,22 +5,34 @@ function Post() {
     const { id } = useParams()
     const navigate = useNavigate()
     const [product, setProduct] = useState(null)
+    const [totalPosts, setTotalPosts] = useState(0)
     const apiImg = "http://localhost:3000/imgs/"
 
+    // Funzione per controllare la navigazione
+    const handleNavigation = (direction) => {
+        const nextId = parseInt(id) + direction;
+        if (nextId > 0 && nextId <= totalPosts) {
+            navigate(`/post/${nextId}`);
+        }
+    }
 
     useEffect(() => {
+        // Chiamata per il post specifico
         fetch(`http://localhost:3000/posts/${id}`)
             .then(response => response.json())
             .then(data => {
                 setProduct(data)
                 console.log(data);
-
             })
             .catch(error => console.error('Error:', error))
 
-        if (id) {
-
-        }
+        // Chiamata per contare il totale dei post
+        fetch("http://localhost:3000/posts")
+            .then(response => response.json())
+            .then(data => {
+                setTotalPosts(data.length)
+            })
+            .catch(error => console.error('Error:', error))
     }, [id])
 
     return (
@@ -28,8 +40,8 @@ function Post() {
             (
                 <main className="py-5">
                     <div className="container">
-                        <div className="col-12" key={"1"}>
-                            <div className="card p-3">
+                        <div className="col-12 " key={"1"}>
+                            <div className="card p-3 card_e">
                                 <div className="row g-0 align-items-center">
                                     <div className="col-md-4">
                                         <img
@@ -52,11 +64,20 @@ function Post() {
                                                     Pubblicato il: {new Date().toLocaleDateString()}
                                                 </small>
                                                 <div>
-                                                    <button className="btn " onClick={() => navigate(`/post/${parseInt(id) - 1}`)}><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                                    <button
+                                                        className="btn"
+                                                        onClick={() => handleNavigation(-1)}
+                                                        disabled={parseInt(id) <= 1}
+                                                    >
+                                                        <i className="fa fa-arrow-left" aria-hidden="true"></i>
                                                     </button>
-                                                    <button className="btn " onClick={() => navigate(`/post/${parseInt(id) + 1}`)}><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    <button
+                                                        className="btn"
+                                                        onClick={() => handleNavigation(1)}
+                                                        disabled={parseInt(id) >= totalPosts}
+                                                    >
+                                                        <i className="fa fa-arrow-right" aria-hidden="true"></i>
                                                     </button>
-
                                                 </div>
                                             </p>
                                         </div>
