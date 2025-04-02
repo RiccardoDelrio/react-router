@@ -18,7 +18,10 @@ function Post() {
             })
             .catch(error => console.error('Error:', error))
 
-    }, [])
+        if (id) {
+
+        }
+    }, [id])
 
     return (
         !product ? ("Loading...") :
@@ -48,8 +51,13 @@ function Post() {
                                                 <small className="text-muted">
                                                     Pubblicato il: {new Date().toLocaleDateString()}
                                                 </small>
-                                                <button className="btn " onClick={() => navigate(-1)}><i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                                </button>
+                                                <div>
+                                                    <button className="btn " onClick={() => navigate(`/post/${parseInt(id) - 1}`)}><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                                    </button>
+                                                    <button className="btn " onClick={() => navigate(`/post/${parseInt(id) + 1}`)}><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </button>
+
+                                                </div>
                                             </p>
                                         </div>
                                     </div>
