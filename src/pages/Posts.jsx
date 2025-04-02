@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
+
 
 function Posts() {
     const [dataBlogs, SetDataBlogs] = useState([]) //dati ricevuti dalla chiamata fetch
@@ -29,11 +31,14 @@ function Posts() {
                             <div className="card p-3">
                                 <div className="row g-0 align-items-center">
                                     <div className="col-md-4">
-                                        <img
-                                            src={`${apiImg}/${element.image}`}
-                                            className="img_card rounded"
-                                            alt={element.title}
-                                        />
+                                        <Link to={`/post/${element.id}`}>
+
+                                            <img
+                                                src={`${apiImg}/${element.image}`}
+                                                className="img_card rounded"
+                                                alt={element.title}
+                                            />
+                                        </Link>
                                     </div>
                                     <div className="col-md-8">
                                         <div className="card-body">
